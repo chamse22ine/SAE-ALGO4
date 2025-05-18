@@ -1,66 +1,107 @@
 # Shortest Path Algorithms: Dijkstra and Bellman-Ford Comparison
 
-## Description
+## 📚 Description
 
-This project implements and analyzes the performance of two classic shortest path algorithms: Dijkstra's algorithm and the Bellman-Ford algorithm. [cite: 1, 4] The algorithms are implemented in Python and tested using real-world GTFS (General Transit Feed Specification) data from the Tadao transport network. [cite: 6, 7, 8]
+This project implements and analyzes the performance of two classic shortest path algorithms: **Dijkstra's algorithm** and the **Bellman-Ford algorithm**. The algorithms are implemented in **Python** and tested using real-world **GTFS (General Transit Feed Specification)** data from the **Tadao** public transport network.
 
-The primary goals of this project are:
-* To implement Dijkstra's algorithm with two different priority queue structures: a binary heap and a Fibonacci heap. [cite: 5]
-* To implement the Bellman-Ford algorithm. [cite: 1]
-* To conduct a theoretical complexity analysis of each algorithm.
-* To perform an empirical analysis of the algorithms' performance using the Tadao GTFS dataset, comparing their execution times. [cite: 6, 28, 31]
-* To determine the most efficient algorithm for finding the shortest paths within the context of the Tadao transport network. [cite: 43]
+### 🎯 Project Objectives
 
-## Project Structure
+- Implement Dijkstra's algorithm using:
+  - A **binary heap** priority queue
+  - A **Fibonacci heap** priority queue
+- Implement the **Bellman-Ford algorithm**
+- Perform a **theoretical complexity analysis** of each algorithm
+- Conduct an **empirical performance comparison** using the Tadao GTFS dataset
+- Determine the most efficient algorithm for computing shortest paths in the context of the Tadao network
+
+---
+
+## 🗂️ Project Structure
 ```
-.
-├── algorithme.py       # Python script with algorithm implementations
-├── report.pdf          # Detailed project report with analysis and results
-├── tadao/              # Directory containing GTFS data for the Tadao network
-│   ├── routes.txt      # Information about transit routes 
-│   ├── stop_times.txt  # Arrival and departure times for stops 
-│   ├── stops.txt       # Information about transit stops 
-│   └── trips.txt       # Information about individual trips 
-└── README.md           # This file
+├── algorithme.py # Python script with algorithm implementations
+├── report.pdf # Detailed report with analysis and results
+├── tadao/ # Directory containing GTFS data
+│ ├── routes.txt
+│ ├── stop_times.txt
+│ ├── stops.txt
+│ └── trips.txt
+└── README.md # This file
 ```
-## Data
+---
 
-The project utilizes GTFS data from the Tadao public transport network. [cite: 7, 8] This dataset was obtained from data.gouv.fr. [cite: 7] The data files describe the transport network, including stops, routes, trip schedules, and stop times. [cite: 8] This data is used to construct a weighted graph where stops are vertices and connections between stops (with travel times as weights) are edges. [cite: 9]
+## 🗃️ Data
 
-The following files are used from the GTFS dataset:
-* `stops.txt`: Contains information about individual stops. [cite: 8, 10]
-* `stop_times.txt`: Contains arrival and departure times for each stop in a trip. [cite: 8, 10]
-* `trips.txt`: Contains information about individual transit trips. [cite: 8, 10]
-* `routes.txt`: Contains information about transit lines/routes. [cite: 8, 10]
+The project uses **GTFS data** from the **Tadao** public transport network, available from [data.gouv.fr](https://www.data.gouv.fr/). The data describes the transport network as a **weighted graph** where:
 
-The data is loaded and preprocessed using the pandas library in Python. [cite: 10]
+- **Vertices** represent stops
+- **Edges** represent connections between stops with **travel time as weight**
 
-## Algorithms Implemented
+### GTFS Files Used
 
-1.  **Dijkstra's Algorithm**:
-    * Implemented with a binary heap for the priority queue. [cite: 1, 5, 13, 16, 17]
-    * Implemented with a Fibonacci heap for the priority queue. [cite: 1, 5, 18, 23, 24]
-2.  **Bellman-Ford Algorithm**:
-    * Implemented as described in the project report. [cite: 1, 25, 26]
+- `stops.txt`: Information about stops
+- `stop_times.txt`: Stop arrival and departure times
+- `trips.txt`: Trip-level information
+- `routes.txt`: Details about transit routes
 
-## How to Run
+Data is processed using the **pandas** library.
 
-1.  **Prerequisites**: Ensure you have Python installed. You will likely need the `pandas` library for data processing. [cite: 10]
-    ```bash
-    pip install pandas
-    ```
-2.  **Data**: Place the `tadao` folder containing the GTFS `.txt` files (`routes.txt`, `stop_times.txt`, `stops.txt`, `trips.txt`) in the same directory as `algorithme.py`. [cite: 10]
-3.  **Execute**: Run the Python script:
-    ```bash
-    python algorithme.py
-    ```
-    The script will likely load the GTFS data, build the graph, and then run the implemented shortest path algorithms, possibly outputting performance metrics or shortest path results as described in the `report.pdf`. [cite: 28, 29, 39, 40]
+---
 
-## Report
+## 🧠 Algorithms Implemented
 
-A comprehensive analysis of the algorithms, their implementations, theoretical complexity, and empirical performance results on the Tadao dataset can be found in `report.pdf`. [cite: 1, 4, 28, 30, 31, 32, 33, 36, 38, 41, 42] The report discusses the construction of the graph from GTFS data[cite: 9, 10, 12], the implementation details of Dijkstra's algorithm (with both binary and Fibonacci heaps)[cite: 13, 16, 17, 18, 23, 24], and the Bellman-Ford algorithm[cite: 25, 26]. It also includes a comparison of their execution times and practical applications. [cite: 30, 31, 39]
+### Dijkstra's Algorithm
 
-## Dependencies
+- With **binary heap** priority queue
+- With **Fibonacci heap** priority queue
 
-* Python 3.x
-* pandas (for loading and preprocessing GTFS data [cite: 10])
+### Bellman-Ford Algorithm
+
+- Classic implementation as described in theoretical literature
+
+---
+
+## 🛠️ How to Run
+
+### Prerequisites
+
+Ensure you have **Python 3.x** and **pandas** installed.
+
+Install pandas:
+```bash
+pip install pandas
+```
+Steps
+Place the tadao/ folder (with the GTFS files) in the same directory as algorithme.py.
+
+Run the main script:
+
+```bash
+python algorithme.py
+```
+The script will load the GTFS data, construct the graph, and run the shortest path algorithms, printing results or saving performance metrics depending on the implementation.
+
+## 📄 Report
+- A complete report is provided in report.pdf, covering:
+
+- Graph construction from GTFS data
+
+- Algorithm implementations (Dijkstra: binary/Fibonacci heaps, Bellman-Ford)
+
+- Theoretical complexity analysis
+
+- Empirical performance comparison on Tadao data
+
+- Real-world application insights
+
+## 📦 Dependencies
+Python 3.x
+
+pandas – for loading and preprocessing GTFS data
+
+## 📃 License
+This project is provided for educational and research purposes. Free to use, modify, and share under the terms of academic use.
+
+## 🧾 References
+References and citations are detailed in the report.pdf.
+
+
